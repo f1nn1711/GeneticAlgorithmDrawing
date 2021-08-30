@@ -1,5 +1,7 @@
 class drawingObject {
   int[][] points = new int[nOfVertecies][2];
+  float fitness = 0;
+  
   drawingObject(boolean randomObj) {
     if (randomObj == true) {
       for (int i = 0; i < nOfVertecies; i++) {
@@ -9,6 +11,13 @@ class drawingObject {
         
         points[i] = point;
       }
+    }
+  }
+  
+  void calcualateFitness() {
+    for (int i = 0; i < nOfVertecies; i++) {
+      float fit = mean(points[i][0]-vertecies[i][0], points[i][1]-vertecies[i][1]);
+      fitness = fitness + fit;
     }
   }
   
